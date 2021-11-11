@@ -23,7 +23,7 @@ jobs:
       - name: npm install front     
         run: cd ./front-end && npm install
       - name: build
-        run: npm run build
+        run: cd ./front-end && npm run build
       - name: deploy
         if: ${{ github.event_name == 'push' && ( ! contains(join(toJson(github.event.commits.*.message)), '#skip') ) }}
         uses: akhileshns/heroku-deploy@v3.12.12
