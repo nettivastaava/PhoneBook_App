@@ -19,10 +19,6 @@ const App = () => {
       })
   }, [])
 
-  function isIn (persons) {
-    return persons.name === newName
-  }
-
   const addPerson = (event) => {
     event.preventDefault()
 
