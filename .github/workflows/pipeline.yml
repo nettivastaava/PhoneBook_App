@@ -16,12 +16,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      - name: npm install front     
+        run: cd ./front-end && npm install
       - name: npm install back
         run: npm install  
       - name: lint
         run: npm run lint .
-      - name: npm install front     
-        run: cd ./front-end && npm install
       - name: build
         run: cd ./front-end && npm run build
       - name: deploy
