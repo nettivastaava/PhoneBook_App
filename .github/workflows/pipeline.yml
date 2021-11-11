@@ -31,9 +31,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          healthcheck: http://${{secrets.HEROKU_APP_NAME}}.herokuapp.com/health
-          rollbackonhealthcheckfailed: true
-      - name: success on deploy
       - uses: actions/checkout@v2
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' && ( ! contains(join(toJson(github.event.commits.*.message)), '#skip') ) }}
