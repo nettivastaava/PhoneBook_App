@@ -16,14 +16,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: npm install front     
-        run: cd ./front-end && npm install
-      - name: npm install back
+      - name: npm install
         run: npm install  
       - name: lint
         run: npm run lint .
       - name: build
-        run: cd ./front-end && npm run build
+        run: npm run build
       - name: deploy
         if: ${{ github.event_name == 'push' && ( ! contains(join(toJson(github.event.commits.*.message)), '#skip') ) }}
         uses: akhileshns/heroku-deploy@v3.12.12
